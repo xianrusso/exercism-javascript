@@ -3,14 +3,10 @@ export const isPangram = (str) => {
         return false;
     }
 
-    let pangram = [];
+    const s = new Set(
+                    str.split('')
+                       .filter(x => x.match(/[A-Za-z]/))
+                       .map(x => x.toUpperCase()));
 
-    let mapping = str.split('').map(x => {
-        if (x.match(/[A-Za-z]/)) {
-            pangram.push(x);
-        }
-    });
-
-    const s = new Set(pangram.map(x => x.toUpperCase()));
-    return s.size === 26 ? true : false;
+    return s.size === 26;
 };
