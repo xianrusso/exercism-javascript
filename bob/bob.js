@@ -1,12 +1,16 @@
 'use strict';
 
+const isQuestion = str => str.endsWith('?');
+const isYelling = str => str.toUpperCase() === str;
+const isWord = str => /[A-Za-z]/.test(str) === true;
+
 export const hey = (message) => {
   message = message.trim();
-  if (message.toUpperCase() === message && message.slice(-1) === '?' && /[A-Za-z]/.test(message) === true) {
+  if (isYelling(message) && isQuestion(message) && isWord(message)) {
     return "Calm down, I know what I'm doing!";
-  } else if (message.toUpperCase() === message && /[A-Za-z]/.test(message) === true) {
+  } else if (isYelling(message) && isWord(message)) {
     return "Whoa, chill out!";
-  } else if (message.slice(-1) === '?') {
+  } else if (isQuestion(message)) {
     return "Sure.";
   } else if (message === '') {
     return "Fine. Be that way!";
