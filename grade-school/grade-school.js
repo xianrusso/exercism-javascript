@@ -2,8 +2,8 @@ export class GradeSchool {
 	constructor() {
 		this.students = {};
 	}
-	roster() {
-		return JSON.parse(JSON.stringify(this.students));	
+	roster() {	
+		return clone(this.students);
 	}
 	add(name, grade) {
 		this.students[grade] = this.grade(grade).concat(name).sort();
@@ -13,3 +13,8 @@ export class GradeSchool {
 		return students.sort();
 	}
 }
+
+const clone = (obj) => Object.assign({}, obj);
+const freeze = (obj) => Object.freeze(obj);
+
+// return JSON.parse(JSON.stringify(this.students));
