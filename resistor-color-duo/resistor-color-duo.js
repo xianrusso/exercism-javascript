@@ -1,22 +1,9 @@
 'use strict'
-
-const COLORS = {
-	"black": 0,
-	"brown": 1,
-	"red": 2,
-	"orange": 3,
-	"yellow": 4,
-	"green": 5,
-	"blue": 6,
-	"violet": 7,
-	"grey": 8, 
-	"white": 9,
-}
+const COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
 
 export const value = (arrOfColors) => {
 	const i = arrOfColors
-							.map(x => COLORS[x])
-							.map(i => i.toString())
-							.reduce((acc, n) => acc += n);
+							.map(x => COLORS.indexOf(x))
+							.join('');					
 	return parseInt(i, 10);
 }
