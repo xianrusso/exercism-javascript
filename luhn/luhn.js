@@ -18,7 +18,9 @@ export class Luhn {
         for (let i = 1; i < reversed.length; i+=2) {
             computedElems.push(reversed[i]);
         }
+
         computedElems = computedElems.map(num => num * 2 >= 10 ? num * 2 - 9 : num * 2);
+       
         for (let i = 1; i < result.length; i+=2) {
             result[i] = computedElems[count];
             count++;
